@@ -91,6 +91,43 @@ void dibuixa(char obj)
 		glPopMatrix();
 		break;
 
+	case ROBOT:
+		//FOOT: 10X10X5 parallelopipe
+		glColor3f(0.0, 0.0, 1.0);
+		glPushMatrix();
+			glScalef(1.0f, 1.0f, 0.5f);
+			glutSolidCube(10.0);
+		glPopMatrix();
+		
+		//LEG: cone radius 2 & height 12.5
+		glColor3f(1.0, 0.0, 1.0);
+		glPushMatrix();
+			glTranslated(0.0f, 0.0f, 2.5f);
+			glutSolidCone(2.0, 12.5, 10, 10);
+		glPopMatrix();
+
+		//Elbow: Sphere of radius 2
+		glColor3f(1.0, 0.0, 0.0);
+		glPushMatrix();
+			glTranslated(0.0f, 0.0f, 15.0f);
+			glutSolidSphere(2.0, 10, 10);
+		glPopMatrix();
+
+		//ARM: Cyclinder 0.5 radius, 15 height
+		glColor3f(0.5, 0.5, 0.5);
+		glPushMatrix();
+			glTranslated(0.0f, 0.0f, 15.0f);
+			glRotated(90, 1, 0, 0);
+			glutSolidCylinder(0.5, 15, 10, 10);
+		glPopMatrix();
+		
+		//Wrist: Sphere of radius 1
+		glColor3f(1.0, 0.0, 0.0);
+		glPushMatrix();
+			glTranslated(0.0f, -15.0f, 15.0f);
+			glutSolidSphere(1.0, 5, 5);
+		glPopMatrix();
+		break;
 	}
 
 }

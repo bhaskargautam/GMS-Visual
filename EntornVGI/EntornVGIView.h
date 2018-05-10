@@ -263,6 +263,8 @@ public:
 	afx_msg void OnUpdateObjecteTetera(CCmdUI *pCmdUI);
 	afx_msg void OnObjecteTruck();
 	afx_msg void OnUpdateObjecteTruck(CCmdUI *pCmdUI);
+	afx_msg void OnObjecteRobot();
+	afx_msg void OnUpdateObjecteRobot(CCmdUI *pCmdUI);
 	afx_msg void OnTransformaTraslacio();
 	afx_msg void OnUpdateTransformaTraslacio(CCmdUI *pCmdUI);
 	afx_msg void OnTransformaOrigentraslacio();

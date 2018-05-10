@@ -94,6 +94,8 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_UPDATE_COMMAND_UI(ID_OBJECTE_TETERA, &CEntornVGIView::OnUpdateObjecteTetera)
 	ON_COMMAND(ID_OBJECTE_TRUCK, &CEntornVGIView::OnObjecteTruck)
 	ON_UPDATE_COMMAND_UI(ID_OBJECTE_TRUCK, &CEntornVGIView::OnUpdateObjecteTruck)
+	ON_COMMAND(ID_OBJECTE_ROBOT, &CEntornVGIView::OnObjecteRobot)
+	ON_UPDATE_COMMAND_UI(ID_OBJECTE_ROBOT, &CEntornVGIView::OnUpdateObjecteRobot)
 	ON_COMMAND(ID_TRANSFORMA_TRASLACIO, &CEntornVGIView::OnTransformaTraslacio)
 	ON_UPDATE_COMMAND_UI(ID_TRANSFORMA_TRASLACIO, &CEntornVGIView::OnUpdateTransformaTraslacio)
 	ON_COMMAND(ID_TRANSFORMA_ORIGENTRASLACIO, &CEntornVGIView::OnTransformaOrigentraslacio)
@@ -390,7 +392,7 @@ int CEntornVGIView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return FALSE;
 	}
 
-//InitAPI();
+  //  InitAPI();
 
 //	if (glewIsExtensionSupported("GLEW_ARB_vertex_shader"))
 //	AfxMessageBox(_T("INFO: GLEW_ARB_vertex_shader supported, proceeding\n"));
@@ -400,6 +402,9 @@ int CEntornVGIView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 //	AfxMessageBox(_T("INFO: GLEW_ARB_fragment_shader supported, proceeding\n"));
 //	else AfxMessageBox(_T("INFO: GLEW_ARB_fragment_shader NOT supported, proceeding\n"));
 //
+	int major, minor;
+	GetGLVersion(&major, &minor);
+/* Check for Opengl support.
 	if (glewIsSupported("GL_VERSION_2_0")) //(GLEW_VERSION_2_0)
 	{
 		AfxMessageBox(_T("INFO: OpenGL 2.0 supported!. Proceed\n"));
@@ -410,10 +415,6 @@ int CEntornVGIView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return EXIT_FAILURE;
 	}
 
-	
-	int major, minor;
-	GetGLVersion(&major, &minor);
-
 	if (major < 3 || (major == 3 && minor < 2))
 	{
 		major = major + major - major;
@@ -422,7 +423,7 @@ int CEntornVGIView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	else
 	{
 		AfxMessageBox(_T("OpenGL 3.2 is supported!. Proceed"));
-	}
+	}*/
 	int attribs[] =
 	{
 		WGL_CONTEXT_MAJOR_VERSION_ARB, major,
@@ -2637,6 +2638,37 @@ void CEntornVGIView::OnUpdateObjecteTruck(CCmdUI *pCmdUI)
 	if (objecte == TRUCK) pCmdUI->SetCheck(1);
 		else pCmdUI->SetCheck(0);
 }
+
+
+// OBJECT ROBOT
+void CEntornVGIView::OnObjecteRobot()
+{
+	// TODO: Add your command controller here
+	objecte = ROBOT;		textura = true;
+
+	// Switch on OpenGL context (from this point OpenGL commands are accepted)
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+	// Inicialize texture image vector o the Truck.
+	Init_Textures();
+
+	// Switch off OpenGL context (from this point accept OpenGL commands are'nt accepted)
+	wglMakeCurrent(m_pDC->GetSafeHdc(), m_hRC);
+
+	//	---- Entorn GMS: PAY ATTENTION!!. To change the scale of the object to fit it in the Volume of Visualization (-1,1,-1,1,-1,1) (Orthographic Views)
+
+	//  ---- Entorn GMS: PAY ATTENTION!!. Modify R parameter of Point of View to fit the object in screen (Perspective, Axonometric projections)
+
+	// Return to main loop OnPaint() to redraw the scene
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnUpdateObjecteRobot(CCmdUI *pCmdUI)
+{
+	// TODO: Agregue aquí su código de controlador de IU para actualización de comandos
+	if (objecte == ROBOT) pCmdUI->SetCheck(1);
+	else pCmdUI->SetCheck(0);
+}
+
 
 
 /* ------------------------------------------------------------------------- */

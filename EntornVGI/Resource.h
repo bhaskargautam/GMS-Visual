@@ -1,6 +1,6 @@
 //{{NO_DEPENDENCIES}}
-// Archivo de inclusión generado de Microsoft Visual C++.
-// Usado por EntornVGI.rc
+// Microsoft Visual C++ generated include file.
+// Used by EntornVGI.rc
 //
 #define IDD_ABOUTBOX                    100
 #define IDP_OLE_INIT_FAILED             100
@@ -114,6 +114,7 @@
 #define ID_OBJECTE_ESFERA               32788
 #define ID_OBJECTE_TETERA               32789
 #define ID_OBJECTE_TRUCK                32790
+#define ID_OBJECTE_ROBOT                220
 #define ID_TRANSFORMA_TRASLACIO         32791
 #define ID_TRANSFORMA_ORIGENTRASLACI32792 32792
 #define ID_TRANSFORMA_ROTACIO           32793
@@ -153,9 +154,23 @@
 #define ID_SHADERS_GOURAUD              32827
 #define ID_SHADERS_PHONG                32828
 #define ID_VISTA_SATELIT                32829
-//New items defined
+#define ID_BUTTON32830                  32830
+#define ID_BUTTON32831                  32831
+#define ID_BUTTON32832                  32832
+#define ID_BUTTON32833                  32833
+#define ID_BUTTON32834                  32834
+#define ID_BUTTON32835                  32835
+#define ID_BUTTON32836                  32836
+#define ID_BUTTON32837                  32837
+#define ID_BUTTON32838                  32838
+#define ID_BUTTON32839                  32839
+#define ID_BUTTON32840                  32840
+#define ID_BUTTON32841                  32841
 #define ID_PROJECCIO_ORTHO              40000
-#define ID_PROJECCIO_AXONOMETRIC		40001
+#define ID_PROJECCIO_AXONOMETRIC        40001
+
+// Next default values for new objects
+// 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
