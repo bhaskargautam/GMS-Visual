@@ -158,18 +158,8 @@ BEGIN
     SEPARATOR
     BUTTON      ID_FILE_PRINT
     BUTTON      ID_APP_ABOUT
-    BUTTON      ID_BUTTON32830
-    BUTTON      ID_BUTTON32831
-    BUTTON      ID_BUTTON32832
-    BUTTON      ID_BUTTON32833
-    BUTTON      ID_BUTTON32834
-    BUTTON      ID_BUTTON32835
-    BUTTON      ID_BUTTON32836
-    BUTTON      ID_BUTTON32837
-    BUTTON      ID_BUTTON32838
-    BUTTON      ID_BUTTON32839
-    BUTTON      ID_BUTTON32840
-    BUTTON      ID_BUTTON32841
+    BUTTON      ID_BUTTON_Z_POSITIVE
+    BUTTON      ID_BUTTON_Z_NEGATIVE
 END
 
 IDR_SORT TOOLBAR 16, 15
@@ -597,6 +587,7 @@ BEGIN
     IDR_MAINFRAME           "Graphic Application VS2013 with OpenGL with GLUT primitives (Engineering School - UAB)"
     IDR_EntornVGITYPE       "\nEntornVGI\nEntornVGI\n\n\nEntornVGI.Document\nEntornVGI.Document"
     ID_WINDOW_MANAGER       "&Ventanas..."
+    ID_BUTTON_Z_NEGATIVE    "Rotate arm in Z negetive direction"
 END
 
 STRINGTABLE
@@ -741,6 +732,11 @@ BEGIN
     IDS_BUILD_TAB           "Compilar"
     IDS_DEBUG_TAB           "Depurar"
     IDS_FIND_TAB            "Buscar"
+END
+
+STRINGTABLE
+BEGIN
+    ID_BUTTON_Z_POSITIVE    "Move arm in z positive direction."
 END
 
 #endif    // Spanish (Spain, International Sort) resources

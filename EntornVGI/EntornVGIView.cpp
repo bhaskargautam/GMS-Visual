@@ -149,6 +149,8 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_UPDATE_COMMAND_UI(ID_SHADERS_PHONG, &CEntornVGIView::OnUpdateShadersPhong)
 	ON_COMMAND(ID_VISTA_SATELIT, &CEntornVGIView::OnVistaSatelit)
 	ON_UPDATE_COMMAND_UI(ID_VISTA_SATELIT, &CEntornVGIView::OnUpdateVistaSatelit)
+	ON_COMMAND(ID_BUTTON_Z_POSITIVE, &CEntornVGIView::OnZpositiveRotation)
+	ON_COMMAND(ID_BUTTON_Z_NEGATIVE, &CEntornVGIView::OnZnegetiveRotation)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3223,6 +3225,18 @@ void CEntornVGIView::OnUpdateLlumsLlum0(CCmdUI *pCmdUI)
 		else pCmdUI->SetCheck(0);
 }
 
+/* SECTION TO CONTROL ROBOT MOVEMENTS */
+void CEntornVGIView::OnZpositiveRotation()
+{
+	zPosRotation += 4;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnZnegetiveRotation()
+{
+	zPosRotation -= 4;
+	InvalidateRect(NULL, false);
+}
 
 /* ------------------------------------------------------------------------- */
 /*					10. SHADERS												 */
