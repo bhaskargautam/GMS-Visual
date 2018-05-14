@@ -33,6 +33,7 @@
 #define ID_OPEN_WITH                    137
 #define ID_DUMMY_COMPILE                138
 #define ID_CLASS_ADD_MEMBER_FUNCTION    139
+#define ID_BUTTON_X_POSITIVE            139
 #define ID_CLASS_ADD_MEMBER_VARIABLE    140
 #define ID_BUTTON_Z_NEGATIVE            140
 #define ID_CLASS_DEFINITION             141
@@ -156,6 +157,7 @@
 #define ID_SHADERS_PHONG                32828
 #define ID_VISTA_SATELIT                32829
 #define ID_BUTTON_Z_POSITIVE            32832
+#define ID_BUTTON_X_NEGATIVE            32836
 #define ID_PROJECCIO_ORTHO              40000
 #define ID_PROJECCIO_AXONOMETRIC        40001
 
@@ -164,7 +166,7 @@
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        310
-#define _APS_NEXT_COMMAND_VALUE         32834
+#define _APS_NEXT_COMMAND_VALUE         32837
 #define _APS_NEXT_CONTROL_VALUE         1000
 #define _APS_NEXT_SYMED_VALUE           310
 #endif

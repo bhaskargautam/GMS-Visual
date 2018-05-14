@@ -151,6 +151,8 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_UPDATE_COMMAND_UI(ID_VISTA_SATELIT, &CEntornVGIView::OnUpdateVistaSatelit)
 	ON_COMMAND(ID_BUTTON_Z_POSITIVE, &CEntornVGIView::OnZpositiveRotation)
 	ON_COMMAND(ID_BUTTON_Z_NEGATIVE, &CEntornVGIView::OnZnegetiveRotation)
+	ON_COMMAND(ID_BUTTON_X_POSITIVE, &CEntornVGIView::OnXpositiveRotation)
+	ON_COMMAND(ID_BUTTON_X_NEGATIVE, &CEntornVGIView::OnXnegetiveRotation)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3229,12 +3231,28 @@ void CEntornVGIView::OnUpdateLlumsLlum0(CCmdUI *pCmdUI)
 void CEntornVGIView::OnZpositiveRotation()
 {
 	zPosRotation += 4;
+	zPosRotation %= 360;
 	InvalidateRect(NULL, false);
 }
 
 void CEntornVGIView::OnZnegetiveRotation()
 {
 	zPosRotation -= 4;
+	zPosRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnXpositiveRotation()
+{
+	xPosRotation += 4;
+	xPosRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnXnegetiveRotation()
+{
+	xPosRotation -= 4;
+	xPosRotation %= 360;
 	InvalidateRect(NULL, false);
 }
 

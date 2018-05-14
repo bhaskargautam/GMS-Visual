@@ -115,8 +115,12 @@ void dibuixa(char obj)
 
 		//PIVOT ARM: Z & x axis rotations
 		glPushMatrix();
-			glRotated(0, 1, 0, 0);
-			glRotated(zPosRotation, 0, 0, 1);
+			glRotated(xPosRotation, 0, 0, 1);
+			
+			//Move arm to origin before rotating.
+			glTranslated(0.0f, 0.0f, 15.0f);
+			glRotated(zPosRotation, 1, 0, 0);
+			glTranslated(0.0f, 0.0f, -15.0f);
 
 			//ARM: Cyclinder 0.5 radius, 15 height
 			glColor3f(0.5, 0.5, 0.5);

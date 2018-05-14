@@ -160,6 +160,8 @@ BEGIN
     BUTTON      ID_APP_ABOUT
     BUTTON      ID_BUTTON_Z_POSITIVE
     BUTTON      ID_BUTTON_Z_NEGATIVE
+    BUTTON      ID_BUTTON_X_POSITIVE
+    BUTTON      ID_BUTTON_X_NEGATIVE
 END
 
 IDR_SORT TOOLBAR 16, 15
@@ -587,6 +589,7 @@ BEGIN
     IDR_MAINFRAME           "Graphic Application VS2013 with OpenGL with GLUT primitives (Engineering School - UAB)"
     IDR_EntornVGITYPE       "\nEntornVGI\nEntornVGI\n\n\nEntornVGI.Document\nEntornVGI.Document"
     ID_WINDOW_MANAGER       "&Ventanas..."
+    ID_BUTTON_X_POSITIVE    "Move arm in x positive direction."
     ID_BUTTON_Z_NEGATIVE    "Rotate arm in Z negetive direction"
 END
 
@@ -737,6 +740,7 @@ END
 STRINGTABLE
 BEGIN
     ID_BUTTON_Z_POSITIVE    "Move arm in z positive direction."
+    ID_BUTTON_X_NEGATIVE    "Rotate Robot arm in X negetive direction."
 END
 
 #endif    // Spanish (Spain, International Sort) resources

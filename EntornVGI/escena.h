@@ -24,4 +24,5 @@ void sea(void);
 
 // GMS Environment: Robot
 GLint zPosRotation = 0;
+GLint xPosRotation = 0;
 #endif

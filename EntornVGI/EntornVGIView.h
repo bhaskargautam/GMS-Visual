@@ -320,6 +320,8 @@ public:
 	afx_msg void OnUpdateVistaSatelit(CCmdUI *pCmdUI);
 	afx_msg void OnZpositiveRotation();
 	afx_msg void OnZnegetiveRotation();
+	afx_msg void OnXpositiveRotation();
+	afx_msg void OnXnegetiveRotation();
 };
 
 #ifndef _DEBUG  // Versión de depuración en EntornVGIView.cpp
