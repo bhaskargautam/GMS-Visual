@@ -162,6 +162,8 @@ BEGIN
     BUTTON      ID_BUTTON_Z_NEGATIVE
     BUTTON      ID_BUTTON_X_POSITIVE
     BUTTON      ID_BUTTON_X_NEGATIVE
+    BUTTON      ID_BUTTON_W_Z_POSITIVE
+    BUTTON      ID_BUTTON_W_Z_NEGATIVE
 END
 
 IDR_SORT TOOLBAR 16, 15
@@ -741,6 +743,8 @@ STRINGTABLE
 BEGIN
     ID_BUTTON_Z_POSITIVE    "Move arm in z positive direction."
     ID_BUTTON_X_NEGATIVE    "Rotate Robot arm in X negetive direction."
+    ID_BUTTON_W_Z_POSITIVE  "Move wrist in z positive direction."
+    ID_BUTTON_W_Z_NEGATIVE  "Move wrist in z negative direction."
 END
 
 #endif    // Spanish (Spain, International Sort) resources

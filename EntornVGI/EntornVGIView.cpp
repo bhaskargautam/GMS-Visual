@@ -153,6 +153,8 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_COMMAND(ID_BUTTON_Z_NEGATIVE, &CEntornVGIView::OnZnegetiveRotation)
 	ON_COMMAND(ID_BUTTON_X_POSITIVE, &CEntornVGIView::OnXpositiveRotation)
 	ON_COMMAND(ID_BUTTON_X_NEGATIVE, &CEntornVGIView::OnXnegetiveRotation)
+	ON_COMMAND(ID_BUTTON_W_Z_POSITIVE, &CEntornVGIView::OnWristZpositiveRotation)
+	ON_COMMAND(ID_BUTTON_W_Z_NEGATIVE, &CEntornVGIView::OnWristZnegetiveRotation)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3253,6 +3255,20 @@ void CEntornVGIView::OnXnegetiveRotation()
 {
 	xPosRotation -= 4;
 	xPosRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnWristZpositiveRotation()
+{
+	zWristRotation += 4;
+	zWristRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnWristZnegetiveRotation()
+{
+	zWristRotation -= 4;
+	zWristRotation %= 360;
 	InvalidateRect(NULL, false);
 }
 

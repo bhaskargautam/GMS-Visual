@@ -136,45 +136,55 @@ void dibuixa(char obj)
 				glTranslated(0.0f, -15.0f, 15.0f);
 				glutSolidSphere(1.0, 5, 5);
 			glPopMatrix();
-		
-			//lower clamp
-			glColor3f(0.0, 0.5, 0.0);
-			glPushMatrix();
-				glTranslated(0.0f, -15.0f, 15.0f);
-				glRotated(45, 1, 0, 0);
-				// Palm: Parallelopipe of 0.5*4*1
-				glPushMatrix();
-					glTranslated(0.0f, -2.0f, 0.0f);
-					glScalef(0.5, 4.0, 1.0);
-					glutSolidCube(1.0);
-				glPopMatrix();
-				// Finger: Parallelopipe of 0.5*1*2
-				glPushMatrix();
-					glTranslated(0.0f, -3.5f, 1.0f);
-					glScalef(0.5, 1.0, 2.0);
-					glutSolidCube(1.0);
-				glPopMatrix();
-			glPopMatrix();
-
-			//upper clamp
-			glColor3f(0.0, 0.0, 0.5);
-			glPushMatrix();
-				glTranslated(0.0f, -15.0f, 15.0f);
-				glRotated(-45, 1, 0, 0);
-				// Palm: Parallelopipe of 0.5*4*1
-				glPushMatrix();
-					glTranslated(0.0f, -2.0f, 0.0f);
-					glScalef(0.5, 4.0, 1.0);
-					glutSolidCube(1.0);
-				glPopMatrix();
 			
-				// Finger: Parallelopipe of 0.5*1*2
+			//PIVOT: WRIST rotation in 3 degrees
+			glPushMatrix();
+				
+				//Move the pivot to origin before rotaion
+				glTranslated(0.0f, -15.0f, 15.0f);
+				glRotated(zWristRotation, 1, 0, 0);
+				glTranslated(0.0f, 15.0f, -15.0f);
+
+
+				//lower clamp
+				glColor3f(0.0, 0.5, 0.0);
 				glPushMatrix();
-					glTranslated(0.0f, -3.5f, -1.0f);
-					glScalef(0.5, 1.0, 2.0);
-					glutSolidCube(1.0);
+					glTranslated(0.0f, -15.0f, 15.0f);
+					glRotated(45, 1, 0, 0);
+					// Palm: Parallelopipe of 0.5*4*1
+					glPushMatrix();
+						glTranslated(0.0f, -2.0f, 0.0f);
+						glScalef(0.5, 4.0, 1.0);
+						glutSolidCube(1.0);
+					glPopMatrix();
+					// Finger: Parallelopipe of 0.5*1*2
+					glPushMatrix();
+						glTranslated(0.0f, -3.5f, 1.0f);
+						glScalef(0.5, 1.0, 2.0);
+						glutSolidCube(1.0);
+					glPopMatrix();
 				glPopMatrix();
-			glPopMatrix();
+
+				//upper clamp
+				glColor3f(0.0, 0.0, 0.5);
+				glPushMatrix();
+					glTranslated(0.0f, -15.0f, 15.0f);
+					glRotated(-45, 1, 0, 0);
+					// Palm: Parallelopipe of 0.5*4*1
+					glPushMatrix();
+						glTranslated(0.0f, -2.0f, 0.0f);
+						glScalef(0.5, 4.0, 1.0);
+						glutSolidCube(1.0);
+					glPopMatrix();
+			
+					// Finger: Parallelopipe of 0.5*1*2
+					glPushMatrix();
+						glTranslated(0.0f, -3.5f, -1.0f);
+						glScalef(0.5, 1.0, 2.0);
+						glutSolidCube(1.0);
+					glPopMatrix();
+				glPopMatrix();
+			glPopMatrix(); // End Pivot Wrist
 
 		glPopMatrix(); //End Pivot arm.
 		break;
