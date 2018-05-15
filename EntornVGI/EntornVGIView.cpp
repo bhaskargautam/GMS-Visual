@@ -2246,8 +2246,8 @@ void CEntornVGIView::UpdateRobotAnimation()
 		zPosRotation = robot_initial[0] + (current_frame *(robot_final[0] - robot_initial[0])) / NFRAMES;
 		xPosRotation = robot_initial[1] + (current_frame *(robot_final[1] - robot_initial[1])) / NFRAMES;
 		zWristRotation = robot_initial[2] + (current_frame *(robot_final[2] - robot_initial[2])) / NFRAMES;
-		yWristRotation = robot_initial[3] + (current_frame *(robot_final[3] - robot_initial[3])) / NFRAMES;
-		xWristRotation = robot_initial[4] + (current_frame *(robot_final[4] - robot_initial[4])) / NFRAMES;
+		xWristRotation = robot_initial[3] + (current_frame *(robot_final[3] - robot_initial[3])) / NFRAMES;
+		yWristRotation = robot_initial[4] + (current_frame *(robot_final[4] - robot_initial[4])) / NFRAMES;
 		isClampOpen = (robot_initial[5] > 0);
 
 		current_frame++;
