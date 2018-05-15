@@ -151,6 +151,10 @@ public:
 //--------------VGI Environment: Fi De Variables globals de CEntornVGIView
 
 	bool isWristSelected = false; //To control movements for Robot wrists.
+	bool recordRoboMovement = false;
+	GLint* robot_initial = new GLint[6];
+	GLint* robot_final = new GLint[6];
+	int current_frame = 0;
 // Operaciones
 public:
 
@@ -332,6 +336,7 @@ public:
 	afx_msg void OnWristYnegetiveRotation();
 	afx_msg void OnClampOpen();
 	afx_msg void OnClampClose();
+	afx_msg void UpdateRobotAnimation();
 };
 
 #ifndef _DEBUG  // Versión de depuración en EntornVGIView.cpp

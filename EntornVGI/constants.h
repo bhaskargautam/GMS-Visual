@@ -74,6 +74,7 @@ const int p_far=50000;
 #define FITXER 'f'
 #define FITXERBMP 'f'
 #define FITXERIMA 'I'
+#define NFRAMES 100
 
 // It allows to use the functions _s and not the others deprecated (strcpy -> strcpy_s). Defined yet.
 //#define _CRT_SECURE_CPP_OVERLOAD_STANDARD_NAMES 1

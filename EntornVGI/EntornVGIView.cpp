@@ -1250,6 +1250,35 @@ void CEntornVGIView::OnKeyDownForRobot(UINT nChar, UINT nRepCnt, UINT nFlags)
 			break;
 		}
 	}
+
+	if (nChar == 8) // Maps to delete key on mac.
+	{
+		if (recordRoboMovement)
+		{
+			//stop recording
+			recordRoboMovement = false;
+			robot_final[0] = zPosRotation;
+			robot_final[1] = xPosRotation;
+			robot_final[2] = zWristRotation;
+			robot_final[3] = xWristRotation;
+			robot_final[4] = yWristRotation;
+			robot_final[5] = isClampOpen ? 1 : 0;
+
+			anima = true;
+			SetTimer(WM_TIMER, 4, NULL);
+		}
+		else
+		{
+			//start recording
+			recordRoboMovement = true;
+			robot_initial[0] = zPosRotation;
+			robot_initial[1] = xPosRotation;
+			robot_initial[2] = zWristRotation;
+			robot_initial[3] = xWristRotation;
+			robot_initial[4] = yWristRotation;
+			robot_initial[5] = isClampOpen ? 1 : 0;
+		}
+	}
 }
 
 // Teclat_ColorObjecte: keys to change the object color by means of keyboard.
@@ -2179,7 +2208,7 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 // TODO: Add your message handler code here and/or call default
 	if (anima)	{
 		// Message handler of animation when n ms. have occurred
-
+		UpdateRobotAnimation();
 		// OnPaint() call to redraw the scene
 		InvalidateRect(NULL, false);
 		}
@@ -2197,6 +2226,34 @@ void CEntornVGIView::OnTimer(UINT_PTR nIDEvent)
 	CView::OnTimer(nIDEvent);
 }
 
+void CEntornVGIView::UpdateRobotAnimation()
+{
+	if (current_frame > NFRAMES)
+	{
+		isClampOpen = (robot_final[5] > 0);
+		InvalidateRect(NULL, false);
+
+		//Finish Animation & reset variables.
+		anima = false;
+		current_frame = 0;
+		robot_initial = new GLint[6];
+		robot_final = new GLint[6];
+		KillTimer(WM_TIMER);
+	}
+	else
+	{
+		//generate next frame
+		zPosRotation = robot_initial[0] + (current_frame *(robot_final[0] - robot_initial[0])) / NFRAMES;
+		xPosRotation = robot_initial[1] + (current_frame *(robot_final[1] - robot_initial[1])) / NFRAMES;
+		zWristRotation = robot_initial[2] + (current_frame *(robot_final[2] - robot_initial[2])) / NFRAMES;
+		yWristRotation = robot_initial[3] + (current_frame *(robot_final[3] - robot_initial[3])) / NFRAMES;
+		xWristRotation = robot_initial[4] + (current_frame *(robot_final[4] - robot_initial[4])) / NFRAMES;
+		isClampOpen = (robot_initial[5] > 0);
+
+		current_frame++;
+		InvalidateRect(NULL, false);
+	}
+}
 
 /* ------------------------------------------------------------------------- */
 /*   MENU RESOURCES (pop ups) OF THE APPLICATION:                            */
