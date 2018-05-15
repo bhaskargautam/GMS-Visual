@@ -115,10 +115,9 @@ void dibuixa(char obj)
 
 		//PIVOT ARM: Z & x axis rotations
 		glPushMatrix();
-			glRotated(xPosRotation, 0, 0, 1);
-			
 			//Move arm to origin before rotating.
 			glTranslated(0.0f, 0.0f, 15.0f);
+			glRotated(xPosRotation, 0, 0, 1);
 			glRotated(zPosRotation, 1, 0, 0);
 			glTranslated(0.0f, 0.0f, -15.0f);
 
@@ -143,14 +142,21 @@ void dibuixa(char obj)
 				//Move the pivot to origin before rotaion
 				glTranslated(0.0f, -15.0f, 15.0f);
 				glRotated(zWristRotation, 1, 0, 0);
+				glRotated(xWristRotation, 0, 0, 1);
+				glRotated(yWristRotation, 0, 1, 0);
 				glTranslated(0.0f, 15.0f, -15.0f);
-
 
 				//lower clamp
 				glColor3f(0.0, 0.5, 0.0);
 				glPushMatrix();
 					glTranslated(0.0f, -15.0f, 15.0f);
-					glRotated(45, 1, 0, 0);
+					if (isClampOpen) {
+						glRotated(45, 1, 0, 0);
+					}
+					else
+					{
+						glRotated(22.5, 1, 0, 0);
+					}
 					// Palm: Parallelopipe of 0.5*4*1
 					glPushMatrix();
 						glTranslated(0.0f, -2.0f, 0.0f);
@@ -169,7 +175,12 @@ void dibuixa(char obj)
 				glColor3f(0.0, 0.0, 0.5);
 				glPushMatrix();
 					glTranslated(0.0f, -15.0f, 15.0f);
-					glRotated(-45, 1, 0, 0);
+					if (isClampOpen) {
+						glRotated(-45, 1, 0, 0);
+					}
+					else {
+						glRotated(-22.5, 1, 0, 0);
+					}
 					// Palm: Parallelopipe of 0.5*4*1
 					glPushMatrix();
 						glTranslated(0.0f, -2.0f, 0.0f);

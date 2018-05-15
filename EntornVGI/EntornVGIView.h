@@ -324,6 +324,12 @@ public:
 	afx_msg void OnXnegetiveRotation();
 	afx_msg void OnWristZpositiveRotation();
 	afx_msg void OnWristZnegetiveRotation();
+	afx_msg void OnWristXpositiveRotation();
+	afx_msg void OnWristXnegetiveRotation();
+	afx_msg void OnWristYpositiveRotation();
+	afx_msg void OnWristYnegetiveRotation();
+	afx_msg void OnClampOpen();
+	afx_msg void OnClampClose();
 };
 
 #ifndef _DEBUG  // Versión de depuración en EntornVGIView.cpp

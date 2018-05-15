@@ -155,6 +155,12 @@ BEGIN_MESSAGE_MAP(CEntornVGIView, CView)
 	ON_COMMAND(ID_BUTTON_X_NEGATIVE, &CEntornVGIView::OnXnegetiveRotation)
 	ON_COMMAND(ID_BUTTON_W_Z_POSITIVE, &CEntornVGIView::OnWristZpositiveRotation)
 	ON_COMMAND(ID_BUTTON_W_Z_NEGATIVE, &CEntornVGIView::OnWristZnegetiveRotation)
+	ON_COMMAND(ID_BUTTON_W_X_POSITIVE, &CEntornVGIView::OnWristXpositiveRotation)
+	ON_COMMAND(ID_BUTTON_W_X_NEGATIVE, &CEntornVGIView::OnWristXnegetiveRotation)
+	ON_COMMAND(ID_BUTTON_W_Y_POSITIVE, &CEntornVGIView::OnWristYpositiveRotation)
+	ON_COMMAND(ID_BUTTON_W_Y_NEGATIVE, &CEntornVGIView::OnWristYnegetiveRotation)
+	ON_COMMAND(ID_BUTTON_CLAMP_OPEN, &CEntornVGIView::OnClampOpen)
+	ON_COMMAND(ID_BUTTON_CLAMP_CLOSE, &CEntornVGIView::OnClampClose)
 	END_MESSAGE_MAP()
 
 /////////////////////////////////////////////////////////////////////////////
@@ -3269,6 +3275,46 @@ void CEntornVGIView::OnWristZnegetiveRotation()
 {
 	zWristRotation -= 4;
 	zWristRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnWristXpositiveRotation()
+{
+	xWristRotation += 4;
+	xWristRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnWristXnegetiveRotation()
+{
+	xWristRotation -= 4;
+	xWristRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnWristYpositiveRotation()
+{
+	yWristRotation += 4;
+	yWristRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnWristYnegetiveRotation()
+{
+	yWristRotation -= 4;
+	yWristRotation %= 360;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnClampOpen()
+{
+	isClampOpen = true;
+	InvalidateRect(NULL, false);
+}
+
+void CEntornVGIView::OnClampClose()
+{
+	isClampOpen = false;
 	InvalidateRect(NULL, false);
 }
 

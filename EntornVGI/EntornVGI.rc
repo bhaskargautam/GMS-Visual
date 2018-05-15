@@ -164,6 +164,12 @@ BEGIN
     BUTTON      ID_BUTTON_X_NEGATIVE
     BUTTON      ID_BUTTON_W_Z_POSITIVE
     BUTTON      ID_BUTTON_W_Z_NEGATIVE
+    BUTTON      ID_BUTTON_W_X_POSITIVE
+    BUTTON      ID_BUTTON_W_X_NEGATIVE
+    BUTTON      ID_BUTTON_W_Y_POSITIVE
+    BUTTON      ID_BUTTON_W_Y_NEGATIVE
+    BUTTON      ID_BUTTON_CLAMP_OPEN
+    BUTTON      ID_BUTTON_CLAMP_CLOSE
 END
 
 IDR_SORT TOOLBAR 16, 15
@@ -745,6 +751,16 @@ BEGIN
     ID_BUTTON_X_NEGATIVE    "Rotate Robot arm in X negetive direction."
     ID_BUTTON_W_Z_POSITIVE  "Move wrist in z positive direction."
     ID_BUTTON_W_Z_NEGATIVE  "Move wrist in z negative direction."
+    ID_BUTTON_W_X_POSITIVE  "Move wrist in x positive direction."
+    ID_BUTTON_W_X_NEGATIVE  "Move wrist in x negative direction."
+    ID_BUTTON_W_Y_POSITIVE  "MOve wrist in y positive direction."
+    ID_BUTTON_W_Y_NEGATIVE  "Move wrist in y negative direction."
+END
+
+STRINGTABLE
+BEGIN
+    ID_BUTTON_CLAMP_OPEN    "open clamp"
+    ID_BUTTON_CLAMP_CLOSE   "close clamp"
 END
 
 #endif    // Spanish (Spain, International Sort) resources

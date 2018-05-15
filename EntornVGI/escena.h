@@ -26,4 +26,7 @@ void sea(void);
 GLint zPosRotation = 0;
 GLint xPosRotation = 0;
 GLint zWristRotation = 0;
+GLint xWristRotation = 0;
+GLint yWristRotation = 0;
+bool isClampOpen = true;
 #endif
