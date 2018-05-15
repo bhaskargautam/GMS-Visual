@@ -150,6 +150,7 @@ public:
 	CString buffer; // Buffer que magatzema string caracters corresponent a variables float a printar en Status Bar (funció Barra_Estat).
 //--------------VGI Environment: Fi De Variables globals de CEntornVGIView
 
+	bool isWristSelected = false; //To control movements for Robot wrists.
 // Operaciones
 public:
 
@@ -220,6 +221,7 @@ public:
 	afx_msg void OnDestroy();
 	afx_msg void OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags);
+	afx_msg void OnKeyDownForRobot(UINT nChar, UINT nRepCnt, UINT nFlags);
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 	afx_msg void OnLButtonUp(UINT nFlags, CPoint point);
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);

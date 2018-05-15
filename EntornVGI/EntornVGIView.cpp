@@ -1160,6 +1160,8 @@ void CEntornVGIView::releaseAllShaders()
 void CEntornVGIView::OnKeyDown(UINT nChar, UINT nRepCnt, UINT nFlags)
 {
 // TODO: Add your message handler code here and/or call default
+	if (objecte == ROBOT) OnKeyDownForRobot(nChar, nRepCnt, nFlags);
+
 	const float incr = 0.025f;
 	float modul = 0;
 	GLfloat vdir[3] = { 0, 0, 0 };
@@ -1192,6 +1194,63 @@ void CEntornVGIView::OnKeyUp(UINT nChar, UINT nRepCnt, UINT nFlags)
 	CView::OnKeyUp(nChar, nRepCnt, nFlags);
 }
 
+void CEntornVGIView::OnKeyDownForRobot(UINT nChar, UINT nRepCnt, UINT nFlags)
+{
+	if (isWristSelected)
+	{
+		switch (nChar)
+		{
+		case VK_LEFT:
+			OnWristZpositiveRotation();
+			break;
+		case VK_RIGHT:
+			OnWristZnegetiveRotation();
+			break;
+		case VK_UP:
+			OnWristXpositiveRotation();
+			break;
+		case VK_DOWN:
+			OnWristXnegetiveRotation();
+			break;
+		case VK_SPACE:
+			isWristSelected = !isWristSelected;
+			break;
+		case VK_TAB:
+			OnWristYpositiveRotation();
+			break;
+		case VK_CAPITAL:
+			OnWristYnegetiveRotation();
+			break;
+		}
+	}
+	else
+	{
+		switch (nChar)
+		{
+		case VK_LEFT:
+			OnZpositiveRotation();
+			break;
+		case VK_RIGHT:
+			OnZnegetiveRotation();
+			break;
+		case VK_UP:
+			OnXpositiveRotation();
+			break;
+		case VK_DOWN:
+			OnXnegetiveRotation();
+			break;
+		case VK_SPACE:
+			isWristSelected = !isWristSelected;
+			break;
+		case VK_TAB:
+			OnClampClose();
+			break;
+		case VK_CAPITAL:
+			OnClampOpen();
+			break;
+		}
+	}
+}
 
 // Teclat_ColorObjecte: keys to change the object color by means of keyboard.
 void CEntornVGIView::Teclat_ColorObjecte(UINT nChar, UINT nRepCnt)
